@@ -49,8 +49,15 @@ class DbSuper
     }
 
     // Sign up a user
-    function createUser() {
-        
+    function signupUser($username, $password) {
+        echo 'in signup user <br>';
+        $sql = "INSERT INTO users (email, password) VALUES ('$username', '$password')";
+        echo $sql;
+        $result = $this->conn->query($sql);
+        if (!$result) {
+            echo $this->conn->error;
+        }
+        return $result;
     }
     
 }

@@ -28,9 +28,10 @@
             <input type="submit">
         </form>
         <h3>Sign Up: </h3>
-        <form>
-            <input name="usernameSignUp" id="usernameSignUpInput">
-            <input name="passwordSignUp" id="passwordSignUpInput">    
+        <form action="controllers/signupHandler.php" method="post">
+            <input name="usernameSignup" id="usernameSignUpInput">
+            <input name="passwordSignup" id="passwordSignUpInput">
+            <input type="submit">    
         </form>
     <?php } ?>
     </div>
