@@ -1,4 +1,5 @@
 <?php
+require '../models/user.php';
 class DbSuper
 {
     // Databse variables 
@@ -15,19 +16,42 @@ class DbSuper
     } 
 
     // Initializes the test database
-    function _initTest() {
+    protected function _initTest() {
         $this->servername = "localhost";
         $this->dbusername = "root";
         $this->dbpassword = "";
         $this->dbname = "test";
-        $this->conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
     }
 
     // Will initialize the production db
-    function _initProd() {
+    protected function _initProd() {
         //TODO fill
     }
-    
+
+    // Try to connect 
+    protected function connect() {
+        $this->conn = new mysqli($this->servername, 
+            $this->dbusername, $this->dbpassword, $this->dbname);
+    }
+
+    // Logs in a user 
+    function loginUser($username, $password) {
+        $sql = "SELECT * FROM users";
+        $result = $this->conn->query($sql);
+        while($row = $result->fetch_assoc()) {
+            if(($row['email'] === $username) && ($row['password'] === $password)) {
+                $user = new User($username);
+                return $user;
+            }
+        }
+
+        return false;
+    }
+
+    // Sign up a user
+    function createUser() {
+        
+    }
     
 }
 ?>
