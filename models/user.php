@@ -38,13 +38,17 @@ class User
     function getContacts() {
         return $this->contacts; 
     }
-    /*
-      protected $firstMeetingLocation;
-        protected $job;
-        protected $lastContacted;
-        protected $name;
-        protected $details;
-        protected $primaryContactMethod;
-    */
+
+    function setConn($newConn) {
+        $this->conn = $newConn;
+    }
+
+    function addContact($contact) {
+        $sql = "INSERT INTO Contacts (firstMeetingLocation, job, lastContacted, name, user_id, primaryContactMethod) 
+            VALUES ('" . $contact->getFirstMeetingLocation() . "', '" . $contact->getJob() . "', '" . $contact->getLastContacted() . "', 
+            '" .$contact->getName() . "', '" . $this->userID . "', '" . $contact->getPrimaryContactMethod() . "')";
+        $result = $this->conn->query($sql);
+        $this->contacts[] = $contact; 
+    }
 }
 ?>

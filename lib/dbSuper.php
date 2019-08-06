@@ -59,6 +59,10 @@ class DbSuper
         }
         return $result;
     }
+
+    function getConn() {
+        return $this->conn;
+    }
     
 }
 ?>

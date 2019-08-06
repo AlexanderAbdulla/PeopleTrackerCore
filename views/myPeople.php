@@ -48,8 +48,8 @@
         <input class="form-control" type="text" name="job" id="job">
         <label for="firstMeetingLocation">First Met At/On: </label>
         <input class="form-control" type="text" name="firstMeetingLocation" id="firstMeetingLocation">
-        <label for="lastContactedOn">Last Contacted On: </label>
-        <input class="form-control" type="text" name="lastContactedOn" id="lastContactedOn">
+        <label for="lastContacted">Last Contacted On: </label>
+        <input class="form-control" type="text" name="lastContacted" id="lastContacted">
         <label for="primmaryContactMethod">First Met At/On </label>
         <input class="form-control" type="text" name="primaryContactMethod" id="primaryContactMethod">
     </div>
