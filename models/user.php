@@ -13,11 +13,12 @@ class User
         $this->userID = $newUserId;
         $this->username = $newUsername;
         $this->conn = $newConn;
-        $this->contacts = [];
-        $this->_init();
+        $this->_initContacts();
     } 
 
-    function _init() {
+    function _initContacts() {
+        // Empty contacts
+        $this->contacts = [];
         // make our db query to get all contacts 
         $sql = "SELECT * FROM contacts WHERE user_id = '$this->userID'";
         $result = $this->conn->query($sql);
@@ -25,7 +26,7 @@ class User
         while($row = $result->fetch_assoc()) {
             //var_dump($row);
             $contact = new Contact($row['firstMeetingLocation'], $row['job'], $row['lastContacted'],
-                    $row['name'], $row['details'], $row['primaryContactMethod']);
+                    $row['name'], $row['details'], $row['primaryContactMethod'], $row['id']);
             $this->contacts[] = $contact; 
         }
         
@@ -48,7 +49,24 @@ class User
             VALUES ('" . $contact->getFirstMeetingLocation() . "', '" . $contact->getJob() . "', '" . $contact->getLastContacted() . "', 
             '" .$contact->getName() . "', '" . $this->userID . "', '" . $contact->getPrimaryContactMethod() . "')";
         $result = $this->conn->query($sql);
-        $this->contacts[] = $contact; 
+        $this->_initContacts();
+    }
+    
+    function editContact($contactID,  $firstMeetingLocation, $job, $lastContacted, $name, $primaryContactMethod) {
+        $sql = "UPDATE Contacts SET firstMeetingLocation = '$firstMeetingLocation',  job = '$job', 
+            lastContacted = '$lastContacted', name = '$name', primaryContactMethod = '$primaryContactMethod' WHERE id = '$contactID'";
+        $result = $this->conn->query($sql);
+        $this->_initContacts();
+    }
+
+    /*
+UPDATE table_name
+SET column1 = value1, column2 = value2, ...
+WHERE condition;
+    */
+
+    function getID() {
+        return $this->userID;
     }
 }
 ?>

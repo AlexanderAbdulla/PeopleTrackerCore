@@ -9,15 +9,17 @@
     protected $name;
     protected $details;
     protected $primaryContactMethod;
+    protected $ID; 
 
     // Constructor
-    function __construct($firstMeetingLocation, $job, $lastContacted, $name, $details, $primaryContactMethod) {
+    function __construct($firstMeetingLocation, $job, $lastContacted, $name, $details = null, $primaryContactMethod, $ID = null) {
         $this->firstMeetingLocation = $firstMeetingLocation;      
         $this->job = $job;
         $this->lastContacted = $lastContacted;
         $this->name = $name;
         $this->details = $details;
         $this->primaryContactMethod = $primaryContactMethod; 
+        $this->ID = $ID;
     } 
 
     function getFirstMeetingLocation() {
@@ -42,6 +44,10 @@
 
     function getPrimaryContactMethod() {
         return $this->primaryContactMethod;
+    }
+
+    function getID() {
+        return $this->ID;
     }
 }
 ?>

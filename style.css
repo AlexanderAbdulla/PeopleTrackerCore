@@ -1,0 +1,9 @@
+.disabledInput {
+    background-color: inherit;
+    border: none;   
+    max-width: 90px;
+}
+
+.enabledInput {
+    max-width: 90px;
+}
