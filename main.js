@@ -34,12 +34,3 @@ function setSubmissionElements(contactID) {
     document.getElementById('firstMeetingLocation').value = document.getElementById('firstMeetingLocation'+contactID).value;
     document.getElementById('primaryContactMethod').value = document.getElementById('primaryContactMethod'+contactID).value;
 }
-
-/*
-
-    <input type="hidden" id="job" name="job">
-    <input type="hidden" id="name" name="name">
-    <input type="hidden" id="lastContacted" name="lastContacted">
-    <input type="hidden" id="firstMeetingLocation" name="firstMeetingLocation">
-    <input type="hidden" id="primaryContactMethod" name="primaryContactMethod">
-*/

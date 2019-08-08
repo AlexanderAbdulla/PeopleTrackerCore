@@ -48,7 +48,7 @@
                     <td>
                         <button type="button" class="btn btn-sm btn-primary">View</button>
                         <button type="button" onclick="enableThisForm('<?= $contact->getID() ?>')" class="btn btn-sm btn-warning edit<?=$contact->getID()?>">Edit</button>
-                        <button type="button" class="btn btn-sm btn-danger">Delete</button> 
+                        <a href="../controllers/deleteContactHandler.php?contactID=<?= $contact->getID()?>" onclick="deleteThisContact('<?= $contact->getID() ?>')" class="btn btn-sm btn-danger">Delete</a> 
                     </td>
                 </tr> 
                 <?php

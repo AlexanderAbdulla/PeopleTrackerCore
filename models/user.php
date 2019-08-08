@@ -59,11 +59,13 @@ class User
         $this->_initContacts();
     }
 
-    /*
-UPDATE table_name
-SET column1 = value1, column2 = value2, ...
-WHERE condition;
-    */
+    function deleteContact($contactID) {
+        $sql = "DELETE from Contacts WHERE id = $contactID";
+        echo $sql;
+        $result = $this->conn->query($sql);
+        var_dump($result);
+        $this->_initContacts();
+    }
 
     function getID() {
         return $this->userID;
