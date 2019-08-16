@@ -34,3 +34,8 @@ function setSubmissionElements(contactID) {
     document.getElementById('firstMeetingLocation').value = document.getElementById('firstMeetingLocation'+contactID).value;
     document.getElementById('primaryContactMethod').value = document.getElementById('primaryContactMethod'+contactID).value;
 }
+
+validateLoginForm = function(el) {
+    console.log('validating login form. no reason this cant be same for both login and signup')
+    el.form.submit()
+}

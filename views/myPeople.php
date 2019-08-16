@@ -16,7 +16,7 @@
     <a href="../controllers/logoutHandler.php" class="btn btn-sm btn-danger text-right">Logout</a>
 </div>
 
-<form action="../controllers/editContactHandler.php" id="editForm" method="post">
+<form class="entryForm" class="formBorder" action="../controllers/editContactHandler.php" id="editForm" method="post">
     <table style= "width:100%" class="table table-striped">
         <tr>
             <th> Name </th>
@@ -61,24 +61,50 @@
     <input type="hidden" id="firstMeetingLocation" name="firstMeetingLocation">
     <input type="hidden" id="primaryContactMethod" name="primaryContactMethod">
     <input type="hidden" id="selectedContact" name="selectedContact" val="">
+    <div>
+        <button type="button" class="btn btn-success text-right" data-toggle="modal" data-target="#myModal">Add</button>
+    </div>
 </form>
 
-<h2> Add New Contact </h2>
-<form class="form" action="../controllers/addContactHandler.php" method="post">
-    <div class="form-group">
-        <label for="name">Name:</label>
-        <input class="form-control" type="text" name="name" id="name">
-        <label for="job">Job:</label>
-        <input class="form-control" type="text" name="job" id="job">
-        <label for="firstMeetingLocation">First Met At/On: </label>
-        <input class="form-control" type="text" name="firstMeetingLocation" id="firstMeetingLocation">
-        <label for="lastContacted">Last Contacted On: </label>
-        <input class="form-control" type="text" name="lastContacted" id="lastContacted">
-        <label for="primmaryContactMethod">Primary Contact Method </label>
-        <input class="form-control" type="text" name="primaryContactMethod" id="primaryContactMethod">
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Add New Contact</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form class="form" action="../controllers/addContactHandler.php" method="post">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input class="form-control" type="text" name="name" id="name">
+            <label for="job">Job:</label>
+            <input class="form-control" type="text" name="job" id="job">
+            <label for="firstMeetingLocation">First Met At/On: </label>
+            <input class="form-control" type="text" name="firstMeetingLocation" id="firstMeetingLocation">
+            <label for="lastContacted">Last Contacted On: </label>
+            <input class="form-control" type="text" name="lastContacted" id="lastContacted">
+            <label for="primmaryContactMethod">Primary Contact Method </label>
+            <input class="form-control" type="text" name="primaryContactMethod" id="primaryContactMethod">
+        </div>
+        
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <input type="submit" value="Add" class="btn btn-success"> 
+        </form>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
     </div>
-    <input type="submit" value="Add New Contact" class="btn btn-success">
-</form>
+  </div>
+
 
 <?php
     include '../html/footer.php';
