@@ -15,4 +15,4 @@
     <div class="col-sm-1">
     </div>
     <div class="col-sm-9">
-    <h1 class="text-center"> People Tracker </h1>
+    <img class="mainTitle text-center" src="../images/title-red.png">

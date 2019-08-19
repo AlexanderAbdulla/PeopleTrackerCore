@@ -45,9 +45,9 @@ class User
     }
 
     function addContact($contact) {
-        $sql = "INSERT INTO Contacts (firstMeetingLocation, job, lastContacted, name, user_id, primaryContactMethod) 
+        $sql = "INSERT INTO Contacts (firstMeetingLocation, job, lastContacted, name, user_id, primaryContactMethod, details) 
             VALUES ('" . $contact->getFirstMeetingLocation() . "', '" . $contact->getJob() . "', '" . $contact->getLastContacted() . "', 
-            '" .$contact->getName() . "', '" . $this->userID . "', '" . $contact->getPrimaryContactMethod() . "')";
+            '" .$contact->getName() . "', '" . $this->userID . "', '" . $contact->getPrimaryContactMethod() . "', '" . $contact->getDetails() . "')";
         $result = $this->conn->query($sql);
         $this->_initContacts();
     }
@@ -55,6 +55,13 @@ class User
     function editContact($contactID,  $firstMeetingLocation, $job, $lastContacted, $name, $primaryContactMethod) {
         $sql = "UPDATE Contacts SET firstMeetingLocation = '$firstMeetingLocation',  job = '$job', 
             lastContacted = '$lastContacted', name = '$name', primaryContactMethod = '$primaryContactMethod' WHERE id = '$contactID'";
+        $result = $this->conn->query($sql);
+        $this->_initContacts();
+    }
+
+    function editDetails($contactID, $details) {
+        echo 'in edit details<br>';
+        $sql = "UPDATE Contacts SET details = '$details' WHERE id = '$contactID'";
         $result = $this->conn->query($sql);
         $this->_initContacts();
     }

@@ -35,7 +35,18 @@ function setSubmissionElements(contactID) {
     document.getElementById('primaryContactMethod').value = document.getElementById('primaryContactMethod'+contactID).value;
 }
 
+function openView(contactID) {
+    document.getElementById("viewName").innerHTML = document.getElementById('name'+contactID).value;
+    document.getElementById('viewJob').innerHTML = document.getElementById('job'+contactID).value;
+    document.getElementById('viewLastContactedOn').innerHTML = document.getElementById('lastContacted'+contactID).value;
+    document.getElementById('viewFirstMeetingLocation').innerHTML = document.getElementById('firstMeetingLocation'+contactID).value;
+    document.getElementById('viewPrimaryContactMethod').innerHTML = document.getElementById('primaryContactMethod'+contactID).value;
+    document.getElementById('viewDetails').value = document.getElementById('details'+contactID).innerHTML;
+    document.getElementById('viewSelectedContact').value = contactID;
+}
+
 validateLoginForm = function(el) {
     console.log('validating login form. no reason this cant be same for both login and signup')
     el.form.submit()
 }
+

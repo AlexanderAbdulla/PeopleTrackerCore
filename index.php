@@ -24,8 +24,8 @@
     <div class="col-sm-2">
     </div>
     <div class="col-sm-8">
-    <h1 class="text-center"> People Tracker </h1>
-    <div id="loginForm">
+    <img class="mainTitle" src="images/title-red.png">
+    <div id="loginForm"> 
     <?php if($_SESSION['loggedIn'] == true) {  ?>
         <p>logged in lets redirect you</p> 
     <?php } else { ?>

@@ -10,6 +10,7 @@
 
 body {
     background-image: url(images/green-ppl-background.jpg);
+    background-image: no-repeat;
     /*background-color:#cccccc;*/
 }
 
@@ -22,6 +23,17 @@ body {
 
 .entryForm {
     background-color: aliceblue;
-    padding: 10px;
+    padding: 5px;
     border-radius: 10px;
+}
+
+.mainTitle {
+    padding-top: 10px;
+    width: 75%;
+    text-align: center;
+    box-align:center;
+}
+
+#viewDescription {
+    width: 95%;
 }

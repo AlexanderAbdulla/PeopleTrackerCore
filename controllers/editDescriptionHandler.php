@@ -3,14 +3,17 @@
     require_once '../lib/dbSuper.php';
     require_once '../models/user.php';
     require_once '../models/contact.php';
-    // Start session
+    // Start sesison
     session_start();
-    // Get our DB object
-    $db = new DbSuper();
+    // Get our ID values
     $user = unserialize($_SESSION['user']);
-    $contact = new Contact($_POST['firstMeetingLocation'], $_POST['job'], $_POST['lastContacted'], $_POST['name'], $_POST['details'], $_POST['primaryContactMethod']);
+    $userID = $user->getID();
+    $contactID = $_POST['selectedContact'];
+    // Create a new contact
+    var_dump($_POST);
+    $db = new DbSuper();
     $user->setConn($db->getConn());
-    $user->addContact($contact);
+    $user->editDetails($contactID, $_POST['viewDetails']);
     $_SESSION['user'] = serialize($user);
     header('Location: ../views/myPeople.php');
 ?>
