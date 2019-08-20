@@ -30,6 +30,9 @@
         <p>logged in lets redirect you</p> 
     <?php } else { ?>
         <h2>Login:</h2>
+        <div id="loginErrorDiv" class="errorDiv">
+            <?php echo isset($_SESSION['loginError']) ? $_SESSION['loginError'] : ""; ?>  
+        </div>
         <form action="controllers/loginHandler.php" method="post">
             <div class="form-group">
                 <label for="usernameLoginInput">Email</label>
@@ -41,12 +44,15 @@
         </form>
         <br>
         <h2>Sign Up: </h2>
+        <div id="signupErrorDiv" class="errorDiv">
+            <?php echo isset($_SESSION['signupError']) ? $_SESSION['signupError'] : ""; ?>
+        </div>
         <form action="controllers/signupHandler.php" method="post" class="form">
             <div class="form-group">
                 <label for="usernameSignUpInput">Email</label>
                 <input class="form-control" type="email" name="usernameSignup" id="usernameSignUpInput">
                 <label for="passwordSignUpInput">Password</label>
-                <input class="form-control" type="password" name="passwordSignup" id="passwordSignUpInput">
+                <input class="form-control" type="password" name="passwordSignup" id="passwordSignUpInput" required> 
             </div>
             <input type="submit" class="btn btn-success" value="Sign Up">    
         </form>

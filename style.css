@@ -34,6 +34,11 @@ body {
     box-align:center;
 }
 
+.errorDiv {
+    color: red;
+    font-size: 75%;
+}
+
 #viewDescription {
     width: 95%;
 }

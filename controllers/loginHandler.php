@@ -10,16 +10,10 @@
     echo 'trying to log you in dawg<br>';
     $user = $db->loginUser($_POST['usernameLogin'], $_POST['passwordLogin']);
     if(!$user) {
-        echo "we failed with <br>";
-        var_dump($user); 
-        echo "<br>";
+        $_SESSION['loginError'] = "This username / password combo is incorrect";
+        header('Location: ../index.php');
     } else {
-        //echo "we succeeded <br>";
         $_SESSION['user'] = serialize($user); 
-       // var_dump($user);
-        //echo $user->getUsername();
         header('Location: ../views/myPeople.php');
-        //var_dump($user);
-        //redirect to logged in view of all pages 
     }
 ?>
